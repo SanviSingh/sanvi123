@@ -1,0 +1,33 @@
+<div class="col-sm-9" id="change_content">
+             <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-centered">
+                    <div class="panel panel-default">
+                       <div class="back col-lg-12" id="back_div" >
+                              <a href="#" class="btn .btn-link" id="back_to_ques" onclick="backToQues()">
+                              <span class="glyphicon glyphicon-circle-arrow-left"></span> Go Back
+                             </a>
+                       </div>
+
+                        <div class="panel-heading qtitle" style="padding:4%">
+                        {{ question.qtext }}
+                        </div>
+                    <form action="" method="POST" id="answer_{{question.qid}}" onsubmit="return postAnswer();">
+                    <div class="panel-body">
+{% csrf_token %}
+                        <div class="form-group">
+                            <div class="input-group col-md-12">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-comment blue"></i></span>
+                                <textarea name="description" id="answer" rows="20" class="form-control" type="text" placeholder="Your answer here" required></textarea>
+                            </div>
+                        </div>
+                        <div class="">
+                        <button type="submit" class="btn btn-info" >Submit<span class="glyphicon glyphicon-send"></span></button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

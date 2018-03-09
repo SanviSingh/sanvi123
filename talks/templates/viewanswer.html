@@ -1,0 +1,45 @@
+<div class="col-sm-9" id="change_content">
+<div class="feed_container">
+<div class="back col-lg-12 question" id="back_div" >
+{% if not back %}
+        <a href="#" class="btn .btn-link" id="back_to_ques" onclick="backToQues(this)">
+          <span class="glyphicon glyphicon-circle-arrow-left"></span> Go Back
+        </a>
+{% else %}
+        <a href="#" class="btn .btn-link" id="back_to_ques" onclick="{{back}}">
+          <span class="glyphicon glyphicon-circle-arrow-left"></span> Go Back
+        </a>         
+{% endif %}
+</div>
+
+<div class="question col-lg-12">
+    <div class="qtitle" id="{{ques.qid}}"><b>{{ ques.qtext }}</b> </div>
+    <hr class="hrstyle">
+    <div style="height:500px; overflow-y: scroll;">
+{% for q in answers %}
+    <div class="ansby"><b> Answered by: <a>{{ q.user.name }}</a></b></div>
+    <div class="ans">{{ q.atext }}</div>
+    <div style="padding-left:3%">
+    {% if liked|get_item:q.aid %}
+        <a href="#" class="btn btn-info btn-lg" id={{q.aid}} onclick="pressLike(this)" disabled="true">
+          <span class="glyphicon glyphicon-thumbs-up"></span> helpful
+        </a>
+        <p class="like_label" id="label{{q.aid}}"> {{ q.likes }} likes </p>
+    {% elif session_userid == q.user.userid %}
+        <a href="#" class="btn btn-info btn-lg" id={{q.aid}} onclick="pressLike(this)" disabled="true">
+          <span class="glyphicon glyphicon-thumbs-up"></span> helpful
+        </a>
+        <p class="like_label" id="label{{q.aid}}"> {{ q.likes }} likes </p>
+    {% else %}
+        <a href="#" class="btn btn-info btn-lg" id={{q.aid}} onclick="pressLike(this)" >
+          <span class="glyphicon glyphicon-thumbs-up"></span> helpful
+        </a>
+        <p class="like_label" id="label{{q.aid}}"> {{ q.likes }} likes </p>
+    {% endif %}
+    </div>
+    <br><hr class="hrstyle"></br>
+{% endfor %}
+    </div>
+</div>
+</div>
+</div>

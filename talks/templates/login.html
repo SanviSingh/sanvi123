@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+
+	<meta charset="UTF-8">
+	<title>login</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'talks/js/vegas/vegas.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'talks/css/style.css' %}" />
+</head>
+<body class="vegas-slider">
+{% csrf_token %}
+	<div class="content">
+        <div class="card">
+          <div class="container">
+              <h1 style="color:#ff00a5;">Girls Talk</h1>
+          </div>
+          <div class="message" id="message">
+          </div>            
+    <div class="signup">     
+        <h3 style="text-align:center">Sign Up</h3>
+        
+        <form action="/register/" method="POST" id="register_form">
+        {% csrf_token %}
+        <label for="full-name"><b>Full Name</b></label>
+        <input type="text" placeholder="Full name" name="full_name" id='full_name' required>
+        
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" id='email_id' required>
+
+        <label for="psw"><b>Password</b>: <div class="pass" id="pass">must contain atleast ( 5 chracter, 1 number and 1 alphabet)</div></label>
+        <input type="password" placeholder="Enter Password" name="passwd" id="passwd" required>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="repeat" required>
+        <div id="alert" class="pass"></div>
+
+        <div class="clearfix">
+          <button type="submit" class="signupbtn" style="margin-left: 25%;">Sign Up</button>
+        </div>         
+        </form>
+    </div>
+    
+    <div class="login">
+        <h3 style="text-align:center">Login</h3>
+
+        <form action="/talks/login/" method="POST" id="login_form">
+        {% csrf_token %}
+        <label for="login_email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="login_email" id="login_email" required>
+
+        <label for="login_passwd"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="login_passwd" id="login_passwd" required>
+
+        <div class="clearfix">    
+          <button type="submit" class="signupbtn" style="float: left;
+     margin-left: 25%;">Login</button>
+        </div>         
+        </form>
+    </div>
+        
+	
+    </div>
+    </div>       
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'talks/js/vegas/vegas.js' %}"></script>
+<script>
+(function ($) {
+        $('.vegas-slider').vegas({
+                transition: ['fade', 'burn', 'zoomIn'],
+        slides: [
+                        {src : "{% static 'talks/media/1.png' %}"},
+                        {src : "{% static 'talks/media/2.jpg' %}"},
+                        {src : "{% static 'talks/media/3.jpg' %}"},
+                        {src : "{% static 'talks/media/4.jpg' %}"},
+                ]
+        });
+
+
+})(jQuery);
+var emails = {{ emails|safe }};
+var msg = "{{ msg }}";
+</script>
+<script src="{% static 'talks/js/custom.js' %}"></script>
+</body>
+</html>

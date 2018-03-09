@@ -1,0 +1,47 @@
+<div class="col-sm-9" id="change_content">
+             <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-centered">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="feed_head" >
+                            <h3>What is in your mind.. share <i class="glyphicon glyphicon-hand-down"></i></h3>
+                        </div>
+                    <form action="" method="POST" id="postques" onsubmit="return postQuestion();">
+                    <div class="panel-body">
+{% csrf_token %}
+                        <div id="msg" style="display:none">Your question is submitted!</div>
+                        <div class="form-group">
+                                <label class="col-md-3 control-label" for="genre">Genre</label>
+                            <!--    <input type="text" name="genre" placeholder="what type of question you have?" class="form-control" list="genre" required>  -->
+                                 <select class="form-control" id="genre" required>
+				    <option disabled selected value> -- select an option -- </option>
+                                    <option value="Health">Health</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Social">Social</option>
+                                    <option value="Philosophical">Philosophical</option>
+                                    <option value="Latest news">Latest news</option>
+                                    <option value="Others">Others</option>
+                                 </select>
+                        </div>
+                        <div class="form-group">
+                                <label class="col-md-3 control-label" for="question">Question</label>
+                                <input type="text" name="question" id="question" placeholder="Enter title of question" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                                <label class="col-md-3 control-label" for="description">Description</label>
+                            <div class="input-group col-md-12">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-comment blue"></i></span>
+                                <textarea name="description" id="description" rows="8" class="form-control" type="text" required></textarea>
+                            </div>
+                        </div>
+                        <div class="">
+                        <button type="submit" class="btn btn-info" >Submit<span class="glyphicon glyphicon-send"></span></button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

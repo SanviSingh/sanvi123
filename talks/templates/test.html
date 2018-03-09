@@ -1,0 +1,33 @@
+<html>
+<head>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<script>
+$(document).ready(function () {
+window.CSRF_TOKEN = '{{ csrf_token }}';
+$('#testing').click(function(e){
+    e.preventDefault();
+    alert("clicked");
+    $.ajax({
+      type: 'post',
+      url: '/talks/lazy_load/',
+      data: {
+       'csrfmiddlewaretoken': window.CSRF_TOKEN
+      },
+      success: function(data) {
+        $('p').replaceWith(data.posts_html);
+      },
+      error: function(xhr, status, error) {
+        // shit happens friends!
+      }
+    });
+  });
+});
+</script>
+
+<p>Hello World</p>
+<button id="testing">click</button>
+<p>This is test file</p>
+</html>

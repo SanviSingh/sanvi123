@@ -1,0 +1,15 @@
+<div class="col-sm-9" id="change_content">
+<div class="feed_container">
+<div class="question col-lg-12" id="feed_head">
+    <h3> I authored <span class="glyphicon glyphicon-edit"></span> </h3>
+</div>
+{% for a in answers %}
+<div class="question col-lg-12">
+    <div class="qtitle"><b>{{ a.question.qtext }}</b> </div>
+    <div class="ans">{{ a.atext }}</div>
+    <div class="resize"><a href="#" id="{{a.aid}}_{{a.question.qid}}" class="btn btn-info" onclick="loadEditAnswer(this)"><span class="glyphicon glyphicon-pencil"></span> Edit</a> </div>
+    <br><hr class="hrstyle"></br>
+</div>
+{% endfor %}
+</div>
+</div>

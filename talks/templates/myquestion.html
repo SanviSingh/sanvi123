@@ -1,0 +1,14 @@
+<div class="col-sm-9" id="change_content">
+<div class="feed_container">
+<div class="question col-lg-12" id="feed_head">
+    <h3> I asked <span class="glyphicon glyphicon-question-sign"></span> </h3>
+</div>
+{% for q in questions %}
+<div class="question col-lg-12">
+    <div class="qtitle"><b>{{ q.qtext }}</b> </div>
+    <div class="resize" id="backmyques"><a href="#" id="{{q.qid}}" onclick="viewAnswer(this)"><span class="glyphicon glyphicon-eye-open"></span> view answers </a> </div>
+    <br><hr class="hrstyle"></br>
+</div>
+{% endfor %}
+</div>
+</div>

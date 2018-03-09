@@ -1,0 +1,59 @@
+
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$('#register_form').on('submit', function(event){
+      event.preventDefault();
+      var email =$('#email_id').val();
+      var flag=0;
+      var i;
+      for (i = 0; i < emails.length; i++){
+        if(emails[i]==email){
+             flag=1;
+             break;
+        }
+      }
+      if (flag){ 
+         $('#message').text("Registration failed! This email id is already registered");
+         $('#message').removeClass().addClass("danger");
+         $('#email_id').css('border-style','outset');
+         $('#email_id').css('border-width', 'thin');
+         $('#email_id').css('border-color','red');
+         $('input[type="text"]').val('');
+         console.log("found");
+      }
+      else {
+         register(flag);
+      }
+});
+
+function register(Flag){
+  console.log("Calling register function");
+  var name = $('#full_name').val();
+  var email =$('#email_id').val();
+  var passwd = $('#passwd').val();
+  var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+        $.ajax({
+                beforeSend: function(xhr, settings) {
+                     if ( Flag==1 ) { xhr.abort();}
+                     if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                           xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                     }
+                },
+                url: '/talks/register/',
+                type: "POST",
+                data: { 'name':name, 'email':email , 'passwd':passwd },
+                success: function (data) {
+                    console.log("success");
+                    console.log(data);
+                    $('#message').text("Congratulations! registration is successful");
+                    $('#message').removeClass().addClass("success");
+                    $('#email_id').css('border-style');
+                    $('#email_id').css('border-width');
+                    $('#email_id').css('border-color');
+                },
+         });
+}

@@ -1,0 +1,18 @@
+<div class="col-sm-9" id="change_content">
+<div class="feed_container">
+<div class="question col-lg-12" id="feed_head">
+    <h3> What is on <span class="glyphicon glyphicon-fire"></span> today? </h3>
+</div>
+{% for feed in feeds %}
+<div class="question col-lg-12" >
+    <div class="qtitle"><b>{{ feed.qtext }}</b> </div>
+    <div class="resize"><b> Asked by: </b> <a>{{feed.user.name}}</a> </div>
+    <div class="row">
+    <div class="col-lg-10 resize" style="text-align:right"><a href="#" id="{{ feed.qid }}" onclick="viewAnswer(this)"><span class="glyphicon glyphicon-eye-open"></span> view answers </a> </div>
+    <div class="col-lg-2 resize"><a href="#" id="que_{{feed.qid}}" onclick="writeAnswer(this)"><span class="glyphicon glyphicon-pencil"></span> answer</a> </div>
+    </div>
+    <br><hr class="hrstyle"></br>
+</div>
+{% endfor %}
+</div>
+</div>
