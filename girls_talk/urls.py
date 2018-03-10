@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^talks/', include('talks.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'$^', index),
 ]

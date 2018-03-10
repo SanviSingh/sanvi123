@@ -56,7 +56,7 @@ ROOT_URLCONF = 'girls_talk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'talks/templates'),os.path.join(BASE_DIR, 'talks')],
+        'DIRS': [os.path.join(BASE_DIR, 'girls_talk/templates'),os.path.join(BASE_DIR, 'talks')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
