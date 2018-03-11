@@ -12,6 +12,8 @@
                         <div class="panel-heading qtitle" style="padding:4%">
                         {{ question.qtext }}
                         </div>
+                       <div class="desc">{{question.desc}}</div>
+                       <div class="resize"><b>Asked by:</b><a>{{question.user.name}}</a></div>
                     <form action="" method="POST" id="answer_{{question.qid}}" onsubmit="return postAnswer();">
                     <div class="panel-body">
 {% csrf_token %}

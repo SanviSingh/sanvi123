@@ -14,6 +14,8 @@
 
 <div class="question col-lg-12">
     <div class="qtitle" id="{{ques.qid}}"><b>{{ ques.qtext }}</b> </div>
+    <div class="desc">{{ques.desc}}</div>
+    <div class="resize"><b>Asked by:</b><a>{{ques.user.name}}</a></div>
     <hr class="hrstyle">
     <div style="height:500px; overflow-y: scroll;">
 {% for q in answers %}
