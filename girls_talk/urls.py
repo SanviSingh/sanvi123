@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from girls_talk.views import index
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^talks/', include('talks.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'$^', index),
 ]
+urlpatterns += staticfiles_urlpatterns()
