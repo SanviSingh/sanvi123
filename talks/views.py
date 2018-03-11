@@ -256,4 +256,12 @@ def post_edit(request):
     except ObjectDoesNotExist:
         return redirect(index)
 
+def settings(request):
+       pass
 
+def edit_profile(request):
+       posts_html = loader.render_to_string("edit_profile.html")
+       output_data = {
+         'posts_html':posts_html,
+       }
+       return JsonResponse(output_data)

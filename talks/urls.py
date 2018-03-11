@@ -22,6 +22,8 @@ url(r'post_ans/$' , views.post_ans , name="post_ans"),
 url(r'write_ans/$' , views.write_ans , name="write_ans"),
 url(r'show_edit/$' , views.show_edit , name="sow_edit"),
 url(r'post_edit/$' , views.post_edit, name="pst_edit"),
+url(r'edit_profile/$' , views.edit_profile , name="edit_profile"),
+url(r'settings/$' , views.settings , name="settings"),
 ]
 
 

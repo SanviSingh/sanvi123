@@ -341,7 +341,47 @@ $('#myans').click(function(e){
 
 
 // function to create edit profile form
+$('#profile').click(function(e){
+    e.preventDefault();
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+    $.ajax({
+                beforeSend: function(xhr, settings) {
+                     overlay.show();
+                     if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                           xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                     }
+                },
+                url: '/talks/edit_profile/',
+                type: "POST",
+                data: { },
+                success: function (data) {
+                    overlay.hide();
+                    $("#change_content").replaceWith(data.posts_html);
+              }
+        });
+});
 
 //function to create settings form
+$('#settings').click(function(e){
+    e.preventDefault();
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+    $.ajax({
+                beforeSend: function(xhr, settings) {
+                     overlay.show();
+                     if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                           xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                     }
+                },
+                url: '/talks/edit_profile/',
+                type: "POST",
+                data: { },
+                success: function (data) {
+                    overlay.hide();
+                    $("#change_content").replaceWith(data.posts_html);
+              }
+        });
+});
 
 });

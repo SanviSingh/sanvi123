@@ -452,3 +452,9 @@ font-weight: bolder;
     line-height: 1.6;
     font-size: 18px;
 }
+
+img{
+height: 600px;
+width: 100%;
+border: 10px solid white;
+}
