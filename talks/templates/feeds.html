@@ -6,6 +6,7 @@
 {% for feed in feeds %}
 <div class="question col-lg-12" >
     <div class="qtitle"><b>{{ feed.qtext }}</b> </div>
+    <div class="desc">{{ feed.qdesc }}</div>
     <div class="resize"><b> Asked by: </b> <a>{{feed.user.name}}</a> </div>
     <div class="row">
     <div class="col-lg-10 resize" style="text-align:right"><a href="#" id="{{ feed.qid }}" onclick="viewAnswer(this)"><span class="glyphicon glyphicon-eye-open"></span> view answers </a> </div>

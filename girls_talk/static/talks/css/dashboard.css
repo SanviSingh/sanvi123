@@ -443,3 +443,12 @@ padding: 3%;
 h3{
 font-weight: bolder;
 }
+
+.desc{
+    padding-bottom: 1%;
+    color: #6d5757;
+    font-variant: normal;
+    font-family: q_serif;
+    line-height: 1.6;
+    font-size: 18px;
+}
