@@ -8,7 +8,7 @@
     <div class="qtitle"><b>{{ q.qtext }}</b> </div>
     <div class="desc">{{q.qdesc}}</div>
     <div class="resize"><b>Asked by:</b><a>{{q.user.name}}</a></div>
-    <div class="resize" id="backmyques"><a href="#" id="{{q.qid}}" onclick="viewAnswer(this)"><span class="glyphicon glyphicon-eye-open"></span> view answers </a> </div>
+    <div class="resize" id="backmyques" style="text-align:right"><a href="#" id="{{q.qid}}" onclick="viewAnswer(this)"><span class="glyphicon glyphicon-eye-open"></span> view answers </a> </div>
     <br><hr class="hrstyle"></br>
 </div>
 {% endfor %}

@@ -6,9 +6,9 @@
 {% for a in answers %}
 <div class="question col-lg-12">
     <div class="qtitle"><b>{{ a.question.qtext }}</b> </div>
-    <div class="ans">{{ a.atext }}</div>
     <div class="desc">{{a.question.qdesc}}</div>
     <div class="resize"><b>Asked by:</b><a>{{a.question.user.name}}</a></div>
+    <div class="ans">{{ a.atext }}</div>
     <div class="resize"><a href="#" id="{{a.aid}}_{{a.question.qid}}" class="btn btn-info" onclick="loadEditAnswer(this)"><span class="glyphicon glyphicon-pencil"></span> Edit</a> </div>
     <br><hr class="hrstyle"></br>
 </div>
